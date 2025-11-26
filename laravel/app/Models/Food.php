@@ -6,5 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Food extends Model
 {
-    //
+    public function Meal() {
+        return $this->hasMany(Food::class);
+    }
 }

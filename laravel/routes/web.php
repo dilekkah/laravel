@@ -18,3 +18,9 @@ Route::get('/hello/{name}/info', function ($name) {
 });
 
 Route::get('/tmp', [TempController::class, 'tmpFunction']);
+
+Route::resource('customers', CustomerController::class);
+Route::resource('activites', ActivityController::class);
+Route::resource('exercises', ExerciseController::class);
+Route::resource('foods', FoodController::class);
+Route::resource('meals', MealController::class);

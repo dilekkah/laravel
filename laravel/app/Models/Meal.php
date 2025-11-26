@@ -8,6 +8,10 @@ use App\Models\Customer;
 class Meal extends Model
 {
     public function customer () {
-        return $this->belongsTo(Customer::class)
+        return $this->belongsTo(Customer::class);
+    }
+
+    public function food () {
+        return $this->belongsTo(Food::class);
     }
 }

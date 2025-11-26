@@ -6,5 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Activity extends Model
 {
-    //
+    public function customer () {
+        return $this->belongsTo(Customer::class);
+    }
+
+    public function exercise () {
+        return $this->belongsTo(Exercise::class);
+    }
 }

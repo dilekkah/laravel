@@ -6,5 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Exercise extends Model
 {
-    //
+    public function activity() {
+        return $this->hasMany(Activity::class);
+    }
 }
