@@ -16,10 +16,9 @@ return new class extends Migration
             $table->text('name');
             $table->text('surname');
             $table->integer('birthYear');
-            $table->varchar('gender');
+            $table->text('gender');
             $table->text('address');
             $table->timestamps();
-
         });
     }
 

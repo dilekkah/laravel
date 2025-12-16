@@ -12,15 +12,30 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        //
-    }
+        //dd(Customer::all());
+        $customers = Customer::all(); // dizinin elemanlarını tek tek yazdırmak için foreach kullanıyoruz
+        foreach ($customers as $customer) {
+          echo $customer->id . ' - ' . $customer->name . '<br>';
+        }
+
+
 
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
-        //
+        //echo 'I am here!';
+        //dd('helloooo');    //we cant write arrays with echo, with dd we can write any type of data
+        $customer = Customer::create([  //
+            'name' => 'Dilek',
+            'surname' => 'Kahrıman',
+            'address' => 'Küçükçekmece',
+            'birthYear' => 2003,
+            'gender' => 'female',
+        ]);
+
+        dd($customer);
     }
 
     /**

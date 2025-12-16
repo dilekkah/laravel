@@ -7,6 +7,9 @@ use App\Models\Meal;
 
 class Customer extends Model
 {
+   // protected $fillable = [  'name', 'surname', ];
+    protected $guarded = ['id'];
+
     public function meals() {
         return $this->hasMany(Meal::class);
     }
