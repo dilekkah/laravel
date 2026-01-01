@@ -12,12 +12,9 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        //dd(Customer::all());
-        $customers = Customer::all(); // dizinin elemanlarını tek tek yazdırmak için foreach kullanıyoruz
-        foreach ($customers as $customer) {
-          echo $customer->id . ' - ' . $customer->name . '<br>';
-        }
-
+        $customers = Customer::all();
+        return view('customers.list', compact('customers'));
+    }
 
 
     /**
@@ -25,17 +22,7 @@ class CustomerController extends Controller
      */
     public function create()
     {
-        //echo 'I am here!';
-        //dd('helloooo');    //we cant write arrays with echo, with dd we can write any type of data
-        $customer = Customer::create([  //
-            'name' => 'Dilek',
-            'surname' => 'Kahrıman',
-            'address' => 'Küçükçekmece',
-            'birthYear' => 2003,
-            'gender' => 'female',
-        ]);
-
-        dd($customer);
+        return view('customers.create');
     }
 
     /**
@@ -43,7 +30,15 @@ class CustomerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $customer = Customer::create([
+            'name' => $request->post('name'),
+            'surname' => $request->post('surname'),
+            'birthYear' => $request->post('birthYear'),
+            'gender' => $request->post('gender'),
+            'address' => $request->post('address'),
+        ]);
+
+        return redirect()->route('customers.index');
     }
 
     /**
